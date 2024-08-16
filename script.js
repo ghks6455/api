@@ -3,7 +3,7 @@ $(document).ready(() => {
   //   let poketmon;
 
   // 전체 게시글을 불러오는 API 호출
-  fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=40")
+  fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1025")
     .then((response) => {
       // 성공했을 때 json 데이터를 반환
       if (response.ok) {
@@ -23,31 +23,38 @@ $(document).ready(() => {
       console.log(poketmon);
 
       // 각 포켓몬을 순회하면서 요소 생성
-      poketmon.forEach((el, index) => {
-        // div 태그 생성
-        const postElement = $("<div></div>");
-
-        // 클릭 이벤트를 등록하여 이름을 인수로 전달
-        postElement.click(function () {
-          // 클릭한 포켓몬의 이름을 알림으로 띄움
-          alert(`You clicked on ${el.name}`);
-        });
-        // 클래스 속성 삽입
-        $(postElement).addClass("post-item");
-        // article 요소 삽입(이미지 추가 예정)
-        $(postElement).append(
-          `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png">`
-        );
-        // 자식으로 포켓몬 이름을 가진 strong 요소 삽입
-        $(postElement).append(`<strong>${el.name}</strong>`);
-
-        // 생성된 요소를 게시글 그리드에 삽입
-        $("#main").append(postElement);
+      poketmon.forEach((poketmon, index) => {
+        makepost(poketmon, index);
       });
     })
     .catch((error) => {
       console.error("Error:", error);
     });
+
+  /* 게시물 생성 함수 */
+  function makepost(el, index) {
+    // div 태그 생성
+    const postElement = $("<div></div>");
+
+    // <div></div> 태그의 클릭 이벤트 생성
+    postElement.click(function () {
+      // window.location.href = `detail.html?id=${index + 1}`;
+      window.location.href = `detail.html?name=${el.name}&id=${index + 1}`;
+    });
+    // article 요소에 이미지 삽입
+    $(postElement).append(
+      `<article>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+            index + 1
+          }.png">
+         </article>`
+    );
+    // 자식으로 포켓몬 이름을 가진 strong 요소 삽입
+    $(postElement).append(`<strong>${el.name}</strong>`);
+
+    // 생성된 요소를 게시글 그리드에 삽입
+    $("#main").append(postElement);
+  }
 
   /* 검색 기능 */
   $(".search").on("submit", function (e) {

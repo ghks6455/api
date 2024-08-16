@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+#image {
+  width: 475px;
+  height: 475px;
+  background-color: whitesmoke;
+  margin: 10px;
+}
+
+body {
+  height: 100%;
+}
+
+#post-detail {
+  margin: 0 auto;
+  width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#aside {
+  margin: 10px;
+}
+
+#hello {
+  width: 475px;
+  height: 160px;
+}
+
+#memo {
+  width: 475px;
+  height: 240px;
+  background-color: #30a7d7;
+  display: flex;
+}
+
+#memo div {
+  margin: 15px;
+  font-size: 1.3em;
+}
+
+#stats {
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#stats p {
+  width: 150px;
+  margin: 10px;
+}
