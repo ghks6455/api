@@ -46,6 +46,14 @@ button {
 
 #main div {
   width: 200px;
-  height: 200px;
+  height: 130px;
   margin: 20px;
+}
+
+#pokeimg {
+  margin-left: 25%;
+}
+
+#main strong {
+  margin: 0 15px 0 15px;
 }
