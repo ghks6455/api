@@ -44,13 +44,14 @@ $(document).ready(() => {
     // article 요소에 이미지 삽입
     $(postElement).append(
       `<article>
-          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+          <img id="pokeimg" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
             index + 1
           }.png">
          </article>`
     );
     // 자식으로 포켓몬 이름을 가진 strong 요소 삽입
     $(postElement).append(`<strong>${el.name}</strong>`);
+    $(postElement).append(`<strong>no. ${index + 1}</strong>`);
 
     // 생성된 요소를 게시글 그리드에 삽입
     $("#main").append(postElement);
