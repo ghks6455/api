@@ -44,21 +44,30 @@ $(document).ready(() => {
     // article 요소에 이미지 삽입
     $(postElement).append(
       `<article>
-          <img id="pokeimg" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-            index + 1
-          }.png">
+        <img id="pokeimg" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+          index + 1
+        }.png">
          </article>`
     );
     // 자식으로 포켓몬 이름을 가진 strong 요소 삽입
-    $(postElement).append(`<strong>${el.name}</strong>`);
     $(postElement).append(`<strong>no. ${index + 1}</strong>`);
+    $(postElement).append(`<strong>${el.name}</strong>`);
 
     // 생성된 요소를 게시글 그리드에 삽입
     $("#main").append(postElement);
   }
 
   /* 검색 기능 */
-  $(".search").on("submit", function (e) {
+  // $(".search").on("submit", function (e) {
+  // // 웹페이지 새로고침방지
+  // e.preventDefault();
+  // // 검색한 문자 데이터 반환
+  // const value = $("#searchPlace").val();
+  // // 게시글중 제목에 문자열을 포함한 게시글만 반환
+  // $("strong").parent().hide();
+  // $(`strong:contains(${value})`).parent().show();
+  // });
+  $("#searchPlace").keyup("submit", function (e) {
     // 웹페이지 새로고침방지
     e.preventDefault();
     // 검색한 문자 데이터 반환
