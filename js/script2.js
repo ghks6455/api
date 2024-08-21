@@ -71,9 +71,9 @@ $(document).ready(() => {
     // 무게와 키를 출력하는 상수
     const lSpec = `
       <p>height</p>
-      <p>${pokemon.height}m</p>
+      <p>${pokemon.height / 10}m</p>
       <p>weight</p>
-      <p>${pokemon.weight}kg</p>
+      <p>${pokemon.weight / 10}kg</p>
       `;
 
     // 특성 타입을 출력하는 상수
@@ -84,8 +84,9 @@ $(document).ready(() => {
      <p>${pokemon.types.map((a) => a.type.name).join(", ")}</p>`;
 
     // 포켓몬의 설명을 출력하는 상수
+    /* 수정 필요 (버전관련 제거할듯?)*/
     const hello = pokedex.flavor_text_entries.find(
-      (entry) => entry.version.name === "red"
+      (entry) => entry.language.name === "en"
     ).flavor_text;
     // console.log(hello);
 
@@ -98,55 +99,6 @@ $(document).ready(() => {
     let image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
 
     // 이미지를 넣을 태그에 삽입
-    $("#image").css({
-      "background-image": `url(${image})`,
-    });
+    $("#image").html(`<img src=${image}>`);
   });
-
-  /* api를 하나만 불러올때 작성 한 코드 */
-
-  /* api 호출*/
-  // fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     /* 변수 pokemon에 api 할당 */
-  //     pokemon = data;
-  //     console.log(pokemon);
-  //     //   console.log(pokemon);
-  //     let pokemonStats = data.stats;
-  //     console.log(pokemonStats);
-  /* 스텟 순회 */
-  // pokemonStats.forEach((stat) => {
-  //   // 스탯 객체 전체를 콘솔에 출력합니다.
-  //   // console.log(stat);
-  //   // console.log(stat.stat);
-  //   /* 상세 설명 작성 */
-  //   const post = `
-  //   <p>${stat.stat.name}:${stat.base_stat}</p>
-  //   `;
-  //   $("#stats").append(post);
-  // });
-
-  // const lSpec = `
-  //   <p>height</p>
-  //   <p>${pokemon.height}</p>
-  //   <p>weight</p>
-  //   <p>${pokemon.weight}</p>
-
-  //   `;
-  // const rSpec = `
-  //    <p>abilities</p>
-  //    <p>${pokemon.abilities.map((a) => a.ability.name).join(", ")}</p>
-  //  <p>types</p>
-  //  <p>${pokemon.types.map((a) => a.type.name).join(", ")}</p>`;
-
-  // $("#left").append(lSpec);
-  // $("#right").append(rSpec);
-
-  // /* api 안에 있는 공식 이미지를 받아오고 파일 명에 id의 value를 넣어 이미지를 불러옴 */
-  // let image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`;
-
-  // $("#image").css({
-  //   "background-image": `url(${image})`,
-  // });
 });

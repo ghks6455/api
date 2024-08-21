@@ -11,16 +11,33 @@
     ></script>
     <!-- 이거 넣으면 개발자 도구에 아이콘 없다고 에러메세지 안 나옴 -->
     <link rel="shortcut icon" href="#" />
-    <script src="script.js"></script>
-    <link href="style.css" rel="stylesheet" />
+    <script src="./js/script.js"></script>
+    <link href="./css/style1.css" rel="stylesheet" />
   </head>
   <body>
-    <header></header>
+    <header>
+      <a href="https://pokeapi.co/" target="_blank">pokeapi</a>
+      <a href="https://www.pokemonkorea.co.kr/pokedex" target="_blank"
+        >공식 사이트</a
+      >
+      <a
+        href="https://pokemon.fandom.com/ko/wiki/%EB%8C%80%EB%AC%B8"
+        target="_blank"
+        >포켓몬 위키</a
+      >
+    </header>
     <div id="banner"></div>
+    <div id="main_img">
+      <a href="https://wallhere.com/ko/wallpaper/1244675" target="_blank"
+        ><img
+          src="img/1920x1200-px-anime-pixel-art-pixels-pokemon-Pok-mon-trainers-1244675-wallhere.com.jpg"
+          alt=""
+      /></a>
+    </div>
+    <div>Pokemon Finder</div>
 
     <form class="search" action="">
-      <input type="text" name="" id="searchPlace" />
-      <button type="submit" id="search">검색</button>
+      <input type="text" name="" id="searchPlace" placeholder="Pokemon Name" />
     </form>
 
     <div id="main"></div>
